@@ -1,0 +1,29 @@
+{
+  "name": "ergo-muter",
+  "version": "1.0",
+  "description": "a tab mute extension for ergo",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "permissions": ["contextMenus", "activeTab", "<all_urls>"],
+  "icons": {
+    "16": "./images/muted.png",
+    "48": "./images/muted.png",
+    "128": "./images/muted.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["mouse.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "browser_action": {
+    "default_icon": "./images/muted.png",
+    "default_title": "ergo-muter",
+    "default_popup": "popup.html"
+  }, 
+  "manifest_version": 2
+}
